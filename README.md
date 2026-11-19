@@ -1,8 +1,8 @@
 # Lab8Web
 # Modul Praktikum 8: PHP dan Database MySQL (CRUD Data Barang)
 Dibuat oleh:
-[Nama Anda]
-[NIM Anda]
+[Muhammad Zabbar Maulana]
+[312510406]
 Program Studi Teknik Informatika
 ## Persiapan & Prasyarat
 - **XAMPP** (Apache dan MySQL Server sudah terinstal dan berjalan).
@@ -217,7 +217,7 @@ if (isset($_POST['submit']))
 
 ### 6. Mengubah Data / Update (ubah.php)
 File ini menampilkan form yang sudah terisi dengan data lama berdasarkan id_barang yang dipilih. Pengguna dapat mengubah informasi barang dan/atau mengganti file gambar. Script akan melakukan query UPDATE ke database.
-**ubah.php**
+**ubah.php:**
 ```sql
 <?php
 error_reporting(E_ALL);
@@ -327,7 +327,7 @@ function is_select($var, $val) {
 
 ### 7. Menghapus Data / Delete (hapus.php)
 File ini menerima parameter id melalui URL ($_GET['id']), lalu menjalankan query DELETE untuk menghapus baris data tersebut dari database, dan mengalihkan halaman kembali ke index.php.
-**hapus.php**
+**hapus.php:**
 ```sql
 <?php
 include_once 'koneksi.php';
@@ -341,15 +341,82 @@ header('location: index.php');
 
 ### 8. Styling Tampilan (style.css)
 Menambahkan file style.css untuk mempercantik tampilan antarmuka (UI) dari halaman index.php, tambah.php, dan ubah.php. CSS ini mengatur tata letak container, tabel, form input, dan tombol agar lebih rapi dan responsif.
-**style.css**
+**style.css:**
 ```sql
-<?php
-include_once 'koneksi.php';
-$id = $_GET['id'];   // ← Error jika tidak ada parameter id
-$sql = "DELETE FROM data_barang WHERE id_barang='{$id}'";
-$result = mysqli_query($conn, $sql);
-header('location: index.php');
-?>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 20px;
+}
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+h1 {
+    text-align: center;
+    color: #333;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+table, th, td {
+    border: 1px solid #ddd;
+}
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+img {
+    max-width: 80px;
+    height: auto;
+}
+a {
+    text-decoration: none;
+    color: #4CAF50;
+    font-weight: bold;
+    margin: 0 5px;
+}
+a:hover {
+    color: #f44336;
+}
+.input {
+    margin-bottom: 15px;
+}
+.input label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.input input, .input select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+.submit input {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.submit input:hover {
+    background-color: #45a049;
+}
 ```
 <img width="1279" height="667" alt="index css" src="https://github.com/user-attachments/assets/e2a1923d-a90a-4fee-839b-283dc5c84761" />
 <img width="1279" height="667" alt="tambah barang css" src="https://github.com/user-attachments/assets/0a3ed445-a3b5-4955-bda3-7df74249a66e" />
